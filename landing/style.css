@@ -20,7 +20,7 @@ body {
 }
 
 
-/* landing */
+
 
 .landing {
   position: relative;
@@ -32,7 +32,6 @@ body {
 }
 
 
-/* zoom layer */
 
 .zoom-layer {
   position: absolute;
@@ -57,7 +56,6 @@ body {
 }
 
 
-/* map */
 
 .map-image {
   position: absolute;
@@ -82,7 +80,7 @@ body {
 }
 
 
-/* intro */
+
 
 .intro {
   position: absolute;
@@ -116,7 +114,6 @@ body {
 }
 
 
-/* navigation */
 
 .nav {
   position: fixed;
@@ -166,7 +163,7 @@ body {
 }
 
 
-/* map areas */
+
 
 .map-areas {
   position: absolute;
@@ -179,7 +176,7 @@ body {
 }
 
 
-/* area */
+
 
 .area {
   position: absolute;
@@ -236,7 +233,6 @@ body {
 }
 
 
-/* label */
 
 .label {
   display: flex;
@@ -300,7 +296,6 @@ body {
 }
 
 
-/* area positions */
 
 .area-1 {
   top: 8%;
@@ -409,7 +404,6 @@ body {
 }
 
 
-/* responsive */
 
 @media (max-width: 900px) {
 
@@ -437,7 +431,6 @@ body {
 }
 
 
-/* reduced motion */
 
 @media (prefers-reduced-motion: reduce) {
 

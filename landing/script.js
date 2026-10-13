@@ -8,7 +8,6 @@ const areas =
   document.querySelectorAll(".area");
 
 
-/* area hover */
 
 areas.forEach(area => {
 
@@ -46,7 +45,6 @@ areas.forEach(area => {
 });
 
 
-/* zoom */
 
 let scale = 1;
 
@@ -59,7 +57,6 @@ const MAX_SCALE = 1.9;
 const ZOOM_AMOUNT = 0.075;
 
 
-/* drag */
 
 let isDragging = false;
 
@@ -70,7 +67,6 @@ let startTranslateX = 0;
 let startTranslateY = 0;
 
 
-/* parallax */
 
 let targetMouseX = 0;
 let targetMouseY = 0;
@@ -95,7 +91,6 @@ function updateMap() {
 }
 
 
-/* mouse movement */
 
 landing.addEventListener(
   "mousemove",
@@ -139,7 +134,6 @@ landing.addEventListener(
 );
 
 
-/* smooth motion */
 
 function animateMap() {
 
@@ -158,7 +152,6 @@ function animateMap() {
 animateMap();
 
 
-/* limit map */
 
 function clampPosition() {
 
@@ -203,7 +196,6 @@ function clampPosition() {
 }
 
 
-/* wheel zoom */
 
 landing.addEventListener(
   "wheel",
@@ -290,7 +282,6 @@ landing.addEventListener(
 );
 
 
-/* drag start */
 
 landing.addEventListener(
   "mousedown",
@@ -331,8 +322,6 @@ landing.addEventListener(
 );
 
 
-/* drag */
-
 window.addEventListener(
   "mousemove",
   event => {
@@ -358,7 +347,6 @@ window.addEventListener(
 );
 
 
-/* drag stop */
 
 window.addEventListener(
   "mouseup",
@@ -374,7 +362,6 @@ window.addEventListener(
 );
 
 
-/* double click reset */
 
 landing.addEventListener(
   "dblclick",
@@ -411,7 +398,6 @@ landing.addEventListener(
 );
 
 
-/* resize */
 
 window.addEventListener(
   "resize",
