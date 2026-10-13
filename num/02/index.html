@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Archive — The Door</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<main class="archive-page">
+
+  <img
+    class="background-map"
+    src="../landing/image/webmap.png"
+    alt=""
+  >
+
+
+  <header class="header">
+    <h1>ARCHIVE</h1>
+  </header>
+
+
+  <nav class="nav">
+    <a href="../landing/index.html">MAP</a>
+    <a href="../make/index.html">MAKE</a>
+    <a href="index.html" class="active">ARCHIVE</a>
+    <a href="../about/index.html">ABOUT</a>
+  </nav>
+
+
+  <div class="archive-toolbar">
+
+    <div
+      class="game-status"
+      id="game-status"
+    >
+      <span class="status-label">
+        NEIGHBORHOODS
+      </span>
+
+      <div class="status-number">
+        <span id="match-count">00</span>
+        <span id="score-total">/ 07</span>
+      </div>
+    </div>
+
+
+    <button
+      id="mode-switch"
+      type="button"
+    >
+      VIEW ARCHIVE
+    </button>
+
+  </div>
+
+
+  <section
+    class="archive-grid"
+    id="archive-grid"
+  ></section>
+
+
+  <a
+    class="back-button"
+    href="../landing/index.html"
+    aria-label="Back to map"
+  >
+    ←
+  </a>
+
+
+  <!-- START POPUP -->
+
+  <div
+    class="start-overlay"
+    id="start-overlay"
+  >
+
+    <div class="start-card">
+
+      <button
+        class="start-close"
+        id="start-close"
+        type="button"
+        aria-label="Close"
+      >
+        ×
+      </button>
+
+      <span class="start-small">
+        THE DOOR ARCHIVE
+      </span>
+
+      <h2>
+        PLAY THE ARCHIVE?
+      </h2>
+
+      <p class="start-description">
+        Open a door and find its match from the same neighborhood.
+      </p>
+
+      <p class="example">
+        EX. SOHO + SOHO = MATCH
+      </p>
+
+      <p class="start-goal">
+        Find one pair from each of the 7 neighborhoods.
+      </p>
+
+      <div class="start-buttons">
+
+        <button
+          id="start-game"
+          type="button"
+        >
+          START GAME
+          <span>→</span>
+        </button>
+
+        <button
+          id="view-archive"
+          type="button"
+        >
+          VIEW ARCHIVE
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- MATCH POPUP -->
+
+  <div
+    class="match-popup"
+    id="match-overlay"
+  >
+
+    <div class="popup-card">
+
+      <div class="popup-top">
+
+        <span id="popup-small">
+          YOU FOUND
+        </span>
+
+        <span class="popup-number">
+          THE DOOR ARCHIVE
+        </span>
+
+      </div>
+
+      <div class="popup-line"></div>
+
+      <h2 id="popup-title">
+        IT'S A MATCH!
+      </h2>
+
+      <p id="popup-neighborhood">
+        GREENWICH VILLAGE
+      </p>
+
+      <p
+        class="popup-description"
+        id="popup-description"
+      >
+        Two doors. Same neighborhood.
+      </p>
+
+      <button
+        id="continue-button"
+        type="button"
+      >
+        CONTINUE
+        <span>→</span>
+      </button>
+
+    </div>
+
+  </div>
+
+
+  <!-- COMPLETE -->
+
+  <div
+    class="finish-overlay"
+    id="finish-overlay"
+  >
+
+    <div class="finish-panel">
+
+      <div class="finish-index">
+        07 / 07
+      </div>
+
+      <h2>
+        ARCHIVE COMPLETE
+      </h2>
+
+      <p>
+        ALL NEIGHBORHOODS FOUND
+      </p>
+
+      <div class="finish-buttons">
+
+        <button
+          type="button"
+          id="view-complete-archive"
+        >
+          VIEW ARCHIVE
+        </button>
+
+        <button
+          type="button"
+          id="restart-button"
+        >
+          PLAY AGAIN
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

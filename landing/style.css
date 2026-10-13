@@ -1,0 +1,448 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background: #dcd7e8;
+  color: #111;
+
+  font-family: "Roboto Mono", monospace;
+  font-weight: 400;
+}
+
+
+/* landing */
+
+.landing {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  overflow: hidden;
+}
+
+
+/* zoom layer */
+
+.zoom-layer {
+  position: absolute;
+
+  top: -12px;
+  left: -12px;
+
+  width: calc(100% + 24px);
+  height: calc(100% + 24px);
+
+  transform-origin: 0 0;
+
+  will-change: transform;
+
+  cursor: grab;
+
+  z-index: 1;
+}
+
+.zoom-layer.dragging {
+  cursor: grabbing;
+}
+
+
+/* map */
+
+.map-image {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+
+  z-index: 1;
+
+  pointer-events: none;
+
+  user-select: none;
+  -webkit-user-drag: none;
+
+  filter:
+    contrast(1.02)
+    saturate(1.015);
+}
+
+
+/* intro */
+
+.intro {
+  position: absolute;
+
+  top: 34px;
+  left: 46px;
+
+  z-index: 100;
+}
+
+.intro h1 {
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 32px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1px;
+
+  margin-bottom: 18px;
+}
+
+.intro p {
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 14px;
+  font-weight: 400;
+
+  line-height: 1.5;
+}
+
+
+/* navigation */
+
+.nav {
+  position: fixed;
+
+  top: 26px;
+  right: 38px;
+
+  z-index: 300;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 8px;
+
+  background: rgba(250, 247, 255, 0.92);
+
+  border: 1px solid rgba(70, 50, 100, 0.12);
+  border-radius: 40px;
+
+  box-shadow: 0 5px 20px rgba(55, 35, 80, 0.12);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav a {
+  padding: 11px 17px;
+
+  border-radius: 30px;
+
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #4e3b67;
+
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: #56406f;
+  color: #fff;
+}
+
+
+/* map areas */
+
+.map-areas {
+  position: absolute;
+
+  inset: 0;
+
+  z-index: 20;
+
+  pointer-events: none;
+}
+
+
+/* area */
+
+.area {
+  position: absolute;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  pointer-events: auto;
+
+  cursor: pointer;
+
+  text-decoration: none;
+
+  color: #111;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  transform: scale(1);
+
+  transform-origin: center;
+
+  transition:
+    background 0.25s ease,
+    border-color 0.25s ease,
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    opacity 0.25s ease,
+    filter 0.25s ease;
+}
+
+.area:hover,
+.area.active {
+  background: rgba(245, 241, 255, 0.38);
+
+  border-color: rgba(255, 255, 255, 0.7);
+
+  transform: scale(1.02);
+
+  box-shadow: 0 5px 16px rgba(52, 31, 83, 0.11);
+
+  z-index: 50;
+}
+
+.area.dimmed {
+  opacity: 0.28;
+
+  filter:
+    brightness(0.82)
+    saturate(0.82);
+}
+
+
+/* label */
+
+.label {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: flex-start;
+
+  pointer-events: none;
+
+  padding: 5px 7px 6px;
+
+  background: rgba(255, 255, 255, 0.52);
+
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+
+  transition:
+    background 0.25s ease,
+    transform 0.25s ease;
+}
+
+.label strong {
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 17px;
+  font-weight: 400;
+
+  line-height: 1;
+
+  color: #111;
+}
+
+.label span {
+  margin-top: 3px;
+
+  font-family: "Roboto Mono", monospace;
+
+  font-size: 10px;
+  font-weight: 400;
+
+  line-height: 1.15;
+
+  white-space: nowrap;
+
+  color: #111;
+}
+
+.area:hover .label,
+.area.active .label {
+  background: rgba(255, 255, 255, 0.76);
+
+  transform: scale(1.025);
+}
+
+.area:hover .label strong,
+.area:hover .label span,
+.area.active .label strong,
+.area.active .label span {
+  color: #35164f;
+}
+
+
+/* area positions */
+
+.area-1 {
+  top: 8%;
+  left: 72%;
+
+  width: 14%;
+  height: 21%;
+
+  clip-path: polygon(
+    15% 0%,
+    100% 7%,
+    91% 100%,
+    0% 88%
+  );
+}
+
+.area-2 {
+  top: 22%;
+  left: 55%;
+
+  width: 19%;
+  height: 19%;
+
+  clip-path: polygon(
+    20% 0%,
+    100% 15%,
+    82% 100%,
+    0% 76%
+  );
+}
+
+.area-3 {
+  top: 35%;
+  left: 68%;
+
+  width: 12%;
+  height: 16%;
+
+  clip-path: polygon(
+    16% 0%,
+    100% 14%,
+    74% 100%,
+    0% 75%
+  );
+}
+
+.area-4 {
+  top: 43%;
+  left: 37%;
+
+  width: 20%;
+  height: 18%;
+
+  clip-path: polygon(
+    12% 0%,
+    100% 10%,
+    84% 100%,
+    0% 76%
+  );
+}
+
+.area-5 {
+  top: 48%;
+  left: 55%;
+
+  width: 20%;
+  height: 18%;
+
+  clip-path: polygon(
+    14% 0%,
+    100% 15%,
+    83% 100%,
+    0% 80%
+  );
+}
+
+.area-6 {
+  top: 56%;
+  left: 34%;
+
+  width: 14%;
+  height: 15%;
+
+  clip-path: polygon(
+    14% 0%,
+    100% 10%,
+    80% 100%,
+    0% 79%
+  );
+}
+
+.area-7 {
+  top: 68%;
+  left: 73%;
+
+  width: 27%;
+  height: 32%;
+
+  clip-path: polygon(
+    20% 0%,
+    100% 14%,
+    100% 100%,
+    0% 100%,
+    5% 35%
+  );
+}
+
+
+/* responsive */
+
+@media (max-width: 900px) {
+
+  .intro {
+    top: 24px;
+    left: 24px;
+  }
+
+  .intro h1 {
+    font-size: 28px;
+  }
+
+  .intro p {
+    font-size: 12px;
+  }
+
+  .label strong {
+    font-size: 14px;
+  }
+
+  .label span {
+    font-size: 8px;
+  }
+
+}
+
+
+/* reduced motion */
+
+@media (prefers-reduced-motion: reduce) {
+
+  .zoom-layer {
+    transition: none !important;
+  }
+
+}

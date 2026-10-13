@@ -1,0 +1,565 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+
+  background: #f6f3fa;
+  color: #111;
+
+  font-family: "Roboto Mono", monospace;
+}
+
+
+/* page */
+
+.page {
+  position: relative;
+
+  width: 100vw;
+  height: 100vh;
+
+  padding: 24px 40px 18px;
+
+  overflow: hidden;
+}
+
+
+/* background */
+
+.background-map {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  opacity: 0.12;
+
+  pointer-events: none;
+}
+
+
+/* header */
+
+.header {
+  position: relative;
+
+  z-index: 20;
+
+  height: 118px;
+}
+
+.location-title h1 {
+  font-size: 36px;
+  font-weight: 700;
+
+  line-height: 1;
+}
+
+.location-title h2 {
+  margin-top: 10px;
+
+  font-size: 17px;
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: 1px;
+}
+
+.location-title p {
+  margin-top: 7px;
+
+  font-size: 11px;
+  font-weight: 400;
+
+  line-height: 1.4;
+}
+
+
+/* nav */
+
+.nav {
+  position: fixed;
+
+  top: 26px;
+  right: 38px;
+
+  z-index: 300;
+
+  display: flex;
+  align-items: center;
+
+  gap: 4px;
+
+  padding: 8px;
+
+  background: rgba(250, 247, 255, 0.92);
+
+  border: 1px solid rgba(70, 50, 100, 0.12);
+  border-radius: 40px;
+
+  box-shadow: 0 5px 20px rgba(55, 35, 80, 0.12);
+
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.nav a {
+  padding: 11px 17px;
+
+  border-radius: 30px;
+
+  font-size: 12px;
+  font-weight: 400;
+
+  color: #4e3b67;
+
+  text-decoration: none;
+}
+
+.nav a:hover,
+.nav a.active {
+  background: #56406f;
+  color: #fff;
+}
+
+
+/* main */
+
+.content {
+  position: relative;
+
+  z-index: 10;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 770px)
+    470px;
+
+  gap: 55px;
+
+  max-width: 1295px;
+
+  margin: 0 auto;
+
+  align-items: start;
+}
+
+
+/* doors */
+
+.door-grid {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, 1fr);
+
+  column-gap: 30px;
+  row-gap: 14px;
+}
+
+.door-item {
+  min-width: 0;
+
+  cursor: pointer;
+
+  transition: opacity 0.25s ease;
+}
+
+.door-item > span {
+  display: block;
+
+  margin-top: 4px;
+
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.door-grid:has(.door-item:hover)
+.door-item:not(:hover) {
+  opacity: 0.48;
+}
+
+
+/* card */
+
+.card {
+  position: relative;
+
+  width: 100%;
+
+  aspect-ratio: 3 / 4;
+
+  perspective: 1200px;
+}
+
+.card-face {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  overflow: hidden;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  transition: transform 0.6s ease;
+}
+
+.card-face img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
+.card-front {
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+}
+
+.door-item:hover .card-front {
+  transform: rotateY(-180deg);
+}
+
+.door-item:hover .card-back {
+  transform: rotateY(0deg);
+}
+
+
+/* map */
+
+.map-column {
+  width: 470px;
+
+  margin-top: 42px;
+}
+
+.map-caption {
+  display: flex;
+  align-items: center;
+
+  gap: 12px;
+
+  width: 470px;
+  height: 46px;
+
+  margin-bottom: 10px;
+
+  padding: 8px 12px;
+
+  background: rgba(255, 255, 255, 0.86);
+
+  border: 1px solid rgba(78, 59, 103, 0.12);
+}
+
+#mapDoor {
+  padding: 7px 12px;
+
+  background: #5b4377;
+  color: #fff;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+#mapAddress {
+  font-size: 10px;
+
+  color: #38284c;
+}
+
+
+/* map image */
+
+.map-wrap {
+  position: relative;
+
+  width: 470px;
+  height: 470px;
+
+  overflow: hidden;
+
+  background: #3f2c5b;
+}
+
+.upper-map {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+
+/* points */
+
+.map-point {
+  position: absolute;
+
+  width: 30px;
+  height: 30px;
+
+  transform: translate(-50%, -50%);
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  z-index: 20;
+}
+
+
+/* actual Upper East Side positions */
+
+.map-point[data-point="u1"] {
+  left: 28%;
+  top: 18%;
+}
+
+.map-point[data-point="u2"] {
+  left: 48%;
+  top: 16%;
+}
+
+.map-point[data-point="u3"] {
+  left: 66%;
+  top: 22%;
+}
+
+.map-point[data-point="u4"] {
+  left: 72%;
+  top: 38%;
+}
+
+.map-point[data-point="u5"] {
+  left: 54%;
+  top: 44%;
+}
+
+.map-point[data-point="u6"] {
+  left: 34%;
+  top: 52%;
+}
+
+
+.point-dot {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 30px;
+  height: 30px;
+
+  border: 3px solid #fff;
+  border-radius: 50%;
+
+  background: #5b3b78;
+  color: #fff;
+
+  font-size: 8px;
+
+  box-shadow: 0 4px 11px rgba(20, 10, 35, 0.35);
+}
+
+
+/* popup */
+
+.photo-pin {
+  position: absolute;
+
+  left: 50%;
+  bottom: 3px;
+
+  width: 68px;
+
+  transform:
+    translateX(-50%)
+    translateY(8px);
+
+  opacity: 0;
+  visibility: hidden;
+
+  pointer-events: none;
+
+  transition: 0.25s ease;
+}
+
+.photo-box {
+  position: relative;
+
+  display: block;
+
+  width: 68px;
+  height: 90px;
+
+  padding: 4px;
+
+  background: #fff;
+
+  box-shadow: 0 7px 20px rgba(20, 10, 35, 0.32);
+}
+
+.photo-box img {
+  display: block;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+}
+
+.photo-box::after {
+  content: "";
+
+  position: absolute;
+
+  left: 50%;
+  bottom: -8px;
+
+  transform: translateX(-50%);
+
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+  border-top: 9px solid #fff;
+}
+
+.photo-label {
+  position: absolute;
+
+  left: 76px;
+  bottom: 2px;
+
+  padding: 4px 7px;
+
+  background: #fff;
+
+  color: #38244e;
+
+  font-size: 9px;
+}
+
+.map-point.active {
+  z-index: 100;
+}
+
+.map-point.active .point-dot {
+  opacity: 0;
+}
+
+.map-point.active .photo-pin {
+  opacity: 1;
+  visibility: visible;
+
+  transform:
+    translateX(-50%)
+    translateY(0);
+}
+
+.map-wrap.has-active
+.map-point:not(.active) {
+  opacity: 0.3;
+}
+
+
+/* back */
+
+.back-button {
+  position: fixed;
+
+  left: 32px;
+  bottom: 22px;
+
+  z-index: 200;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 42px;
+  height: 42px;
+
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.9);
+
+  color: #111;
+
+  text-decoration: none;
+
+  font-size: 22px;
+}
+
+
+/* smaller screen */
+
+@media (max-height: 820px) {
+
+  .header {
+    height: 106px;
+  }
+
+  .content {
+    grid-template-columns:
+      minmax(0, 690px)
+      420px;
+
+    gap: 45px;
+
+    max-width: 1155px;
+  }
+
+  .door-grid {
+    column-gap: 26px;
+    row-gap: 11px;
+  }
+
+  .map-column {
+    width: 420px;
+
+    margin-top: 30px;
+  }
+
+  .map-caption {
+    width: 420px;
+  }
+
+  .map-wrap {
+    width: 420px;
+    height: 420px;
+  }
+
+}

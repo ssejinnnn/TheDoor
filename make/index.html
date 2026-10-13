@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Make Your Own Door</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+
+<body>
+
+  <img
+    class="background-map"
+    src="../areas/image/webmap.png"
+    alt=""
+  >
+
+
+  <header class="header">
+
+    <div class="title-block">
+      <h1>MAKE YOUR OWN DOOR</h1>
+
+      <p>
+        Drag the elements into the center<br>
+        to create your own door.
+      </p>
+    </div>
+
+
+<nav class="nav">
+
+  <a href="../landing/index.html">MAP</a>
+
+  <a href="../archive/index.html">ARCHIVE</a>
+
+  <a href="../make/index.html" class="active">MAKE</a>
+
+  <a href="../about/index.html">ABOUT</a>
+
+</nav>
+
+  </header>
+
+
+  <main class="workspace">
+
+
+    <!-- DOORS -->
+
+    <section class="panel door-panel">
+
+      <div class="panel-title">
+        <span>DOORS</span>
+        <span>10</span>
+      </div>
+
+
+      <div class="door-grid">
+
+        <div class="asset door-asset" data-type="door" data-src="image/door1.png">
+          <img src="image/door1.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door2.png">
+          <img src="image/door2.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door3.png">
+          <img src="image/door3.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door4.png">
+          <img src="image/door4.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door5.png">
+          <img src="image/door5.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door6.png">
+          <img src="image/door6.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door7.png">
+          <img src="image/door7.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door8.png">
+          <img src="image/door8.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door9.png">
+          <img src="image/door9.png" alt="">
+        </div>
+
+        <div class="asset door-asset" data-type="door" data-src="image/door10.png">
+          <img src="image/door10.png" alt="">
+        </div>
+
+      </div>
+
+    </section>
+
+
+
+    <section class="stage-wrap">
+
+      <div class="stage-title">
+        YOUR DOOR
+      </div>
+
+
+      <div
+        class="stage"
+        id="stage"
+      >
+
+        <div class="stage-mark">
+          <span>+</span>
+        </div>
+
+
+        <img
+          id="currentDoor"
+          class="current-door hidden"
+          src=""
+          alt=""
+        >
+
+
+        <div
+          id="placedItems"
+          class="placed-items"
+        ></div>
+
+      </div>
+
+
+      <div class="stage-actions">
+
+        <button
+          id="resetButton"
+          class="stage-button reset"
+          type="button"
+        >
+          RESET
+        </button>
+
+
+        <button
+          id="submitButton"
+          class="stage-button submit"
+          type="button"
+        >
+          SUBMIT
+        </button>
+
+      </div>
+
+    </section>
+
+
+
+
+
+    <section class="panel detail-panel">
+
+      <div class="panel-title">
+        <span>DETAILS</span>
+        <span>18</span>
+      </div>
+
+
+      <div class="detail-grid">
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail1.png" data-width="72">
+          <img src="image/detail1.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail2.png" data-width="72">
+          <img src="image/detail2.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail3.png" data-width="125">
+          <img src="image/detail3.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail4.png" data-width="105">
+          <img src="image/detail4.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail5.png" data-width="70">
+          <img src="image/detail5.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail6.png" data-width="100">
+          <img src="image/detail6.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail7.png" data-width="70">
+          <img src="image/detail7.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail8.png" data-width="72">
+          <img src="image/detail8.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail9.png" data-width="110">
+          <img src="image/detail9.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail10.png" data-width="125">
+          <img src="image/detail10.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail11.png" data-width="105">
+          <img src="image/detail11.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail12.png" data-width="65">
+          <img src="image/detail12.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail13.png" data-width="70">
+          <img src="image/detail13.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail14.png" data-width="105">
+          <img src="image/detail14.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail15.png" data-width="70">
+          <img src="image/detail15.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail16.png" data-width="95">
+          <img src="image/detail16.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail17.png" data-width="70">
+          <img src="image/detail17.png" alt="">
+        </div>
+
+        <div class="asset detail-asset" data-type="detail" data-src="image/detail18.png" data-width="95">
+          <img src="image/detail18.png" alt="">
+        </div>
+
+      </div>
+
+
+  
+
+      <div class="handle-section">
+
+        <div class="panel-title handle-title">
+          <span>HANDLES</span>
+          <span>5</span>
+        </div>
+
+
+        <div class="handle-row">
+
+          <div
+            class="asset handle-asset"
+            data-type="handle"
+            data-src="image/handle1.png"
+            data-width="70"
+          >
+            <img src="image/handle1.png" alt="">
+          </div>
+
+          <div
+            class="asset handle-asset"
+            data-type="handle"
+            data-src="image/handle2.png"
+            data-width="62"
+          >
+            <img src="image/handle2.png" alt="">
+          </div>
+
+          <div
+            class="asset handle-asset"
+            data-type="handle"
+            data-src="image/handle3.png"
+            data-width="48"
+          >
+            <img src="image/handle3.png" alt="">
+          </div>
+
+          <div
+            class="asset handle-asset"
+            data-type="handle"
+            data-src="image/handle4.png"
+            data-width="68"
+          >
+            <img src="image/handle4.png" alt="">
+          </div>
+
+          <div
+            class="asset handle-asset"
+            data-type="handle"
+            data-src="image/handle5.png"
+            data-width="48"
+          >
+            <img src="image/handle5.png" alt="">
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+
+
+  <section
+    class="result-screen"
+    id="resultScreen"
+  >
+
+
+
+
+    <div
+      class="result-word word-one"
+      id="wordOne"
+    >
+      METAL
+    </div>
+
+
+    <div
+      class="result-word word-two"
+      id="wordTwo"
+    >
+      CONTROLLED
+    </div>
+
+
+    <div
+      class="result-word word-three"
+      id="wordThree"
+    >
+      SECURE
+    </div>
+
+
+
+
+    <div
+      class="result-assembly"
+      id="resultAssembly"
+    >
+
+      <img
+        id="resultDoor"
+        class="result-door"
+        src=""
+        alt=""
+      >
+
+
+      <div
+        id="resultPlacedItems"
+        class="result-placed-items"
+      ></div>
+
+    </div>
+
+
+
+   
+
+    <div class="result-scroll-content">
+
+
+
+
+      <section class="result-hero">
+
+
+        <div class="result-copy">
+
+          <div class="result-label">
+            MATERIAL / DETAIL
+          </div>
+
+
+          <h2 id="resultMaterial">
+            METAL
+          </h2>
+
+
+          <p id="resultDescription"></p>
+
+        </div>
+
+
+
+        <div class="result-meta">
+
+          <div class="meta-block">
+
+            <span>
+              IMPRESSION
+            </span>
+
+
+            <strong id="resultImpression">
+              MODERN / SECURE
+            </strong>
+
+          </div>
+
+
+          <div class="meta-block">
+
+            <span>
+              SURFACE
+            </span>
+
+
+            <strong id="resultSurface">
+              SMOOTH / PRECISE
+            </strong>
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+
+      <section class="result-story">
+
+
+        <div class="story-heading">
+
+          <div class="story-number">
+            2.3
+          </div>
+
+
+          <h3>
+            MATERIAL<br>
+            &amp; DETAIL
+          </h3>
+
+        </div>
+
+
+        <div
+          class="story-copy"
+          id="resultLongDescription"
+        ></div>
+
+      </section>
+
+
+
+
+      <section class="result-ending">
+
+        <div class="ending-small">
+          FIRST IMPRESSION
+        </div>
+
+
+        <div
+          class="ending-large"
+          id="endingLarge"
+        >
+          MODERN /<br>
+          SECURE
+        </div>
+
+      </section>
+
+
+    </div>
+
+  </section>
+
+
+
+
+  <button
+    id="resultClose"
+    class="result-close"
+    type="button"
+  >
+    CLOSE
+  </button>
+
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>
